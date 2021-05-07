@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyledNav = styled.nav`
-  
+
 `
 
 export const StyledList = styled.ul`
@@ -11,14 +11,31 @@ export const StyledList = styled.ul`
 `
 
 export const StyledItem = styled.li`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  color: #b6b6b6;
+  cursor: pointer;
+
+  ${(props) => props.activeItem && css`
+    color: #ececec;
+    background-color: #141418;
+  `}
+
   &:hover{
-    background-color: red;
+    background-color: #141418;
   }
 `
 
 export const StyledButton = styled.a`
   display: block;
-  padding: 10px 15px;
+  font-size: 18px;
   text-decoration: none;
-  cursor: pointer;   
+  letter-spacing: 1px;
+`
+
+export const StyledIcon = styled.div`
+  margin-right: 10px;
+  font-size: 25px;
 `

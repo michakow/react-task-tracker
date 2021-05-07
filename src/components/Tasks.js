@@ -1,4 +1,4 @@
-import Task from "./Task"
+import Task from './Task'
 
 const Tasks = ({ tasks, onDelete, onToggleTaskDone }) => {
   if (tasks.length === 0) return <p className="no-task">Brak zadań do wyświetlenia.</p>
