@@ -1,8 +1,15 @@
 import { useState } from 'react'
-import Tab from './components/Tab';
-import Form from './components/Form';
+import Tab from './components/Tab'
+import Form from './components/Form'
 import Header from './components/Header'
-import Tasks from './components/Tasks';
+import Tasks from './components/Tasks'
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+
+import { StyledContainer } from './styled/StyledContainer'
+import { StyledSidePanel } from './styled/StyledSidePanel'
+import { StyledSection } from './styled/StyledSection'
+import { StyledContent } from './styled/StyledContent'
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -49,13 +56,24 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header title="Task Tracker" />
-      <Tab title={`${showForm ? 'Zamknij' : 'Otwórz'} panel`} onAction={() => setShowForm(!showForm)} />
-      {showForm && <Form onAddTask={addTask} />}
-      <Tab title={`${showTasks ? 'Ukryj' : 'Pokaż'} zadania`} onAction={() => setShowTasks(!showTasks)} />
-      {showTasks && <Tasks tasks={tasks} onDelete={deleteTask} onToggleTaskDone={toggleTaskDone} />}
-    </div>
+    <>
+      <StyledContainer>
+        <Header title="Task Tracker App" />
+        <StyledContent>
+          <StyledSidePanel>
+            <Nav />
+          </StyledSidePanel>
+
+          <StyledSection>
+            <Tab title={`${showForm ? 'Zamknij' : 'Otwórz'} panel`} onAction={() => setShowForm(!showForm)} />
+            {showForm && <Form onAddTask={addTask} />}
+            <Tab title={`${showTasks ? 'Ukryj' : 'Pokaż'} zadania`} onAction={() => setShowTasks(!showTasks)} />
+            {showTasks && <Tasks tasks={tasks} onDelete={deleteTask} onToggleTaskDone={toggleTaskDone} />}
+          </StyledSection>
+        </StyledContent>
+        <Footer />
+      </StyledContainer>
+    </>
   );
 }
 

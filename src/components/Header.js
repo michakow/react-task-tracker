@@ -1,8 +1,10 @@
+import { StyledHeader, StyledIcon, StyledTitle } from "../styled/StyledHeader"
+
 const Header = ({ title }) => {
   return (
-    <header className="header">
-      <h1 className="app-title">{title}</h1>
-    </header>
+    <StyledHeader>
+      <StyledTitle><StyledIcon /> {title}</StyledTitle>
+    </StyledHeader>
   )
 }
 
