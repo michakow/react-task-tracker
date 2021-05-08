@@ -1,8 +1,11 @@
-const Tab = ({ title, onAction }) => {
+import { StyledIcon, StyledTab, StyledTabName } from '../styled/StyledTab'
+
+const Tab = ({ title, onAction, show }) => {
   return (
-    <div className="tab">
-      <p className="tab-name" onClick={onAction}>{title}</p>
-    </div>
+    <StyledTab onClick={onAction} show={show}>
+      <StyledTabName>{title}</StyledTabName>
+      <StyledIcon show={show} />
+    </StyledTab>
   )
 }
 

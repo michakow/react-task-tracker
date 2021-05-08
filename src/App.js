@@ -55,6 +55,14 @@ function App() {
     setTasks(tasks.map((task) => task.id === id ? { ...task, done: !task.done } : task))
   }
 
+  const setAllDone = () => {
+    setTasks(tasks => tasks.map(task => ({ ...task, done: true })))
+  }
+
+  const setAllUndone = () => {
+    setTasks(tasks => tasks.map(task => ({ ...task, done: false })))
+  }
+
   return (
     <>
       <StyledContainer>
@@ -65,10 +73,18 @@ function App() {
           </StyledSidePanel>
 
           <StyledSection>
-            <Tab title={`${showForm ? 'Zamknij' : 'Otwórz'} panel`} onAction={() => setShowForm(!showForm)} />
+            <Tab
+              title={`${showForm ? 'Zamknij' : 'Otwórz'} panel nowego zadania`}
+              onAction={() => setShowForm(!showForm)}
+              show={showForm}
+            />
             {showForm && <Form onAddTask={addTask} />}
-            <Tab title={`${showTasks ? 'Ukryj' : 'Pokaż'} zadania`} onAction={() => setShowTasks(!showTasks)} />
-            {showTasks && <Tasks tasks={tasks} onDelete={deleteTask} onToggleTaskDone={toggleTaskDone} />}
+            <Tab
+              title={`${showTasks ? 'Ukryj' : 'Pokaż'} listę zadań`}
+              onAction={() => setShowTasks(!showTasks)}
+              show={showTasks}
+            />
+            {showTasks && <Tasks tasks={tasks} onDelete={deleteTask} onToggleTaskDone={toggleTaskDone} onSetAllDone={setAllDone} onSetAllUndone={setAllUndone}/>}
           </StyledSection>
         </StyledContent>
         <Footer />

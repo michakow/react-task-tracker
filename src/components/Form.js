@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { StyledButton, StyledForm, StyledInput, StyledLabel, StyledParagraph } from '../styled/StyledForm'
 
 const Form = ({ onAddTask }) => {
   const [name, setName] = useState("")
@@ -13,23 +14,22 @@ const Form = ({ onAddTask }) => {
   }
 
   return (
-    <form className="add-task-form" onSubmit={onFormSubmit} >
-      <label>
-        <p className="form-paragraph">Nazwa zadania</p>
-        <input
+    <StyledForm onSubmit={onFormSubmit}>
+      <StyledParagraph>Podaj nazwę i termin końcowy na wykonanie zadania</StyledParagraph>
+      <StyledLabel primary>
+        <StyledInput
           type="text"
           placeholder="nazwa zadania.."
           required={true}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-      </label>
-      <label>
-        <p className="form-paragraph">Termin wykonania</p>
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-      </label>
-      <input type="submit" value="Dodaj" />
-    </form>
+      </StyledLabel>
+      <StyledLabel secondary >
+        <StyledInput type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+      </StyledLabel>
+      <StyledButton type="submit" value="Zapisz zadanie" />
+    </StyledForm>
   )
 }
 

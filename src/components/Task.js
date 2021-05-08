@@ -1,22 +1,28 @@
-import { FaTimes } from 'react-icons/fa'
+
+import { StyledIcon, StyledItem, StyledParagraph, StyledParagraphs } from '../styled/StyledTasks'
 
 const Task = ({ task, onDelete, onToggleTaskDone }) => {
+
+
   return (
-    <li
-      className="list-element"
+    <StyledItem
       onDoubleClick={() => onToggleTaskDone(task.id)}
+      done={task.done}
     >
-      <p className="task-name">
-        {task.name}
-        <FaTimes style={{ color: 'red', cursor: 'pointer' }} onClick={() => onDelete(task.id)} />
-      </p>
-      <p className="task-date">
-        {task.date ? task.date : 'bez terminu'}
-      </p>
-      <p className="task-done">
-        {task.done ? 'yes' : 'no'}
-      </p>
-    </li>
+      <StyledParagraphs>
+        <StyledParagraph primary>
+          {task.name}
+        </StyledParagraph>
+
+        <StyledParagraph secondary>
+          {task.date ? `Termin do: ${task.date}` : 'bez terminu'}
+        </StyledParagraph>
+      </StyledParagraphs>
+
+      <StyledIcon
+        onClick={() => onDelete(task.id)}
+      />
+    </StyledItem>
   )
 }
 
