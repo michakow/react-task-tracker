@@ -1,11 +1,12 @@
 # Task Tracker App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+DEMO: https://michakow.github.io/react-task-tracker/
 
 ## General info
 
-Extanded Todo List App created in React to scheduling tasks with details. Allow you to add, check, edit and delete them.
-**Project is not finished yet**
+Extanded Todo List App created in React to scheduling tasks with details. Allow you to add, check, edit and delete them.\
+**Project is not finished yet.**
 
 ## Technologies used in project
 
