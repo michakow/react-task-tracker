@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import NavItem from './NavItem'
-import { StyledList, StyledNav } from '../styled/StyledNav'
+import { StyledList, StyledNav } from '../../styled/StyledNav'
 
 const Nav = () => {
   const [menu, setMenu] = useState([

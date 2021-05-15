@@ -1,5 +1,5 @@
 import ItemIcon from './ItemIcon'
-import { StyledButton, StyledItem } from '../styled/StyledNav'
+import { StyledButton, StyledItem } from '../../styled/StyledNav'
 
 const NavItem = ({ item, onToggleItemActive }) => {
   return (

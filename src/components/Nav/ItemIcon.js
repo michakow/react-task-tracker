@@ -2,7 +2,7 @@ import { IoHome } from 'react-icons/io5'
 import { GoTasklist } from 'react-icons/go'
 import { IoCalendar } from 'react-icons/io5'
 import { ImBook } from 'react-icons/im'
-import { StyledIcon } from '../styled/StyledNav';
+import { StyledIcon } from '../../styled/StyledNav';
 
 const ItemIcon = ({ itemID }) => {
   switch (itemID) {
