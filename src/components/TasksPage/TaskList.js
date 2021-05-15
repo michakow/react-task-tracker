@@ -1,8 +1,8 @@
-import { StyledParagraph, StyledTasks, StyledList, StyledBar, StyledButton } from '../styled/StyledTasks'
+import { StyledParagraph, StyledTasks, StyledList, StyledBar, StyledButton } from '../../styled/StyledTasks'
 import Task from './Task'
 import { useState } from 'react'
 
-const Tasks = ({ tasks, onDelete, onToggleTaskDone, onSetAllDone, onSetAllUndone }) => {
+const TaskList = ({ tasks, onDeleteTask, onToggleTaskDone, onSetAllDone, onSetAllUndone }) => {
   const [filter, setFilter] = useState(0)
 
   if (tasks.length === 0) return (
@@ -35,7 +35,6 @@ const Tasks = ({ tasks, onDelete, onToggleTaskDone, onSetAllDone, onSetAllUndone
       </StyledBar>
 
       <StyledList>
-
         {(() => {
           switch (filter) {
             case 0:
@@ -44,7 +43,7 @@ const Tasks = ({ tasks, onDelete, onToggleTaskDone, onSetAllDone, onSetAllUndone
                   <Task
                     key={task.id}
                     task={task}
-                    onDelete={onDelete}
+                    onDeleteTask={onDeleteTask}
                     onToggleTaskDone={onToggleTaskDone}
                   />
                 ))
@@ -55,7 +54,7 @@ const Tasks = ({ tasks, onDelete, onToggleTaskDone, onSetAllDone, onSetAllUndone
                   <Task
                     key={task.id}
                     task={task}
-                    onDelete={onDelete}
+                    onDeleteTask={onDeleteTask}
                     onToggleTaskDone={onToggleTaskDone}
                   />
                 ))
@@ -66,7 +65,7 @@ const Tasks = ({ tasks, onDelete, onToggleTaskDone, onSetAllDone, onSetAllUndone
                   <Task
                     key={task.id}
                     task={task}
-                    onDelete={onDelete}
+                    onDeleteTask={onDeleteTask}
                     onToggleTaskDone={onToggleTaskDone}
                   />
                 ))
@@ -76,10 +75,9 @@ const Tasks = ({ tasks, onDelete, onToggleTaskDone, onSetAllDone, onSetAllUndone
               return ""
           }
         })()}
-
       </StyledList>
     </StyledTasks>
   )
 }
 
-export default Tasks
+export default TaskList

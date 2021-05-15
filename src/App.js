@@ -1,11 +1,8 @@
 import { useState } from 'react'
-import Tab from './components/Tab'
-import Form from './components/Form'
 import Header from './components/Header'
-import Tasks from './components/Tasks'
-import Nav from './components/Nav'
+import Nav from './components/Nav/Nav'
+import TasksPage from './components/TasksPage/TasksPage'
 import Footer from './components/Footer'
-
 import { StyledContainer } from './styled/StyledContainer'
 import { StyledSidePanel } from './styled/StyledSidePanel'
 import { StyledSection } from './styled/StyledSection'
@@ -32,10 +29,6 @@ function App() {
       done: false
     }
   ])
-
-  const [showForm, setShowForm] = useState(true)
-  const [showTasks, setShowTasks] = useState(true)
-
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))
@@ -71,20 +64,15 @@ function App() {
           <StyledSidePanel>
             <Nav />
           </StyledSidePanel>
-
           <StyledSection>
-            <Tab
-              title={`${showForm ? 'Zamknij' : 'Otwórz'} panel nowego zadania`}
-              onAction={() => setShowForm(!showForm)}
-              show={showForm}
+            <TasksPage
+              tasks={tasks}
+              onAddTask={addTask}
+              onDeleteTask={deleteTask}
+              onToggleTaskDone={toggleTaskDone}
+              onSetAllDone={setAllDone}
+              onSetAllUndone={setAllUndone}
             />
-            {showForm && <Form onAddTask={addTask} />}
-            <Tab
-              title={`${showTasks ? 'Ukryj' : 'Pokaż'} listę zadań`}
-              onAction={() => setShowTasks(!showTasks)}
-              show={showTasks}
-            />
-            {showTasks && <Tasks tasks={tasks} onDelete={deleteTask} onToggleTaskDone={toggleTaskDone} onSetAllDone={setAllDone} onSetAllUndone={setAllUndone}/>}
           </StyledSection>
         </StyledContent>
         <Footer />

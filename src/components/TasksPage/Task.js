@@ -1,8 +1,7 @@
 
-import { StyledIcon, StyledItem, StyledParagraph, StyledParagraphs } from '../styled/StyledTasks'
+import { StyledIcon, StyledItem, StyledParagraph, StyledParagraphs } from '../../styled/StyledTasks'
 
-const Task = ({ task, onDelete, onToggleTaskDone }) => {
-
+const Task = ({ task, onDeleteTask, onToggleTaskDone }) => {
 
   return (
     <StyledItem
@@ -20,7 +19,7 @@ const Task = ({ task, onDelete, onToggleTaskDone }) => {
       </StyledParagraphs>
 
       <StyledIcon
-        onClick={() => onDelete(task.id)}
+        onClick={() => onDeleteTask(task.id)}
       />
     </StyledItem>
   )

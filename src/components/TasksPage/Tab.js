@@ -1,4 +1,4 @@
-import { StyledIcon, StyledTab, StyledTabName } from '../styled/StyledTab'
+import { StyledIcon, StyledTab, StyledTabName } from '../../styled/StyledTab'
 
 const Tab = ({ title, onAction, show }) => {
   return (

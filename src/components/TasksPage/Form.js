@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyledButton, StyledForm, StyledInput, StyledLabel, StyledParagraph } from '../styled/StyledForm'
+import { StyledButton, StyledForm, StyledInput, StyledLabel, StyledParagraph } from '../../styled/StyledForm'
 
 const Form = ({ onAddTask }) => {
   const [name, setName] = useState("")
