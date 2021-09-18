@@ -1,4 +1,4 @@
-import { StyledFooter, StyledParagraph } from "../styled/StyledFooter"
+import { StyledFooter, StyledParagraph } from "../../styled/StyledFooter"
 
 const Footer = () => {
   return (

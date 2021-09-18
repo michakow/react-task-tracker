@@ -7,22 +7,26 @@ const Nav = () => {
     {
       id: 1,
       name: 'Główna',
-      active: true
+      active: true,
+      pathName: '/'
     },
     {
       id: 2,
       name: 'Zadania',
-      active: false
+      active: false,
+      pathName: '/tasks'
     },
     {
       id: 3,
       name: 'Kalendarz',
-      active: false
+      active: false,
+      pathName: '/calendar'
     },
     {
       id: 4,
       name: 'Notatnik',
-      active: false
+      active: false,
+      pathName: '/notes'
     }
   ])
 

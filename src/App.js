@@ -1,8 +1,12 @@
 import { useState } from 'react'
-import Header from './components/Header'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Header from './components/Header/Header'
 import Nav from './components/Nav/Nav'
 import TasksPage from './components/TasksPage/TasksPage'
-import Footer from './components/Footer'
+import HomePage from './components/HomePage/HomePage'
+import CalendarPage from './components/CalendarPage/CalendarPage'
+import NotesPage from './components/NotesPage/NotesPage'
+import Footer from './components/Footer/Footer'
 import { StyledContainer } from './styled/StyledContainer'
 import { StyledSidePanel } from './styled/StyledSidePanel'
 import { StyledSection } from './styled/StyledSection'
@@ -57,7 +61,7 @@ function App() {
   }
 
   return (
-    <>
+    <BrowserRouter>
       <StyledContainer>
         <Header title="Task Tracker App" />
         <StyledContent>
@@ -65,20 +69,31 @@ function App() {
             <Nav />
           </StyledSidePanel>
           <StyledSection>
-            <TasksPage
-              tasks={tasks}
-              onAddTask={addTask}
-              onDeleteTask={deleteTask}
-              onToggleTaskDone={toggleTaskDone}
-              onSetAllDone={setAllDone}
-              onSetAllUndone={setAllUndone}
-            />
+            <Route path='/' exact>
+              <HomePage />
+            </Route>
+            <Route path='/tasks'>
+              <TasksPage
+                tasks={tasks}
+                onAddTask={addTask}
+                onDeleteTask={deleteTask}
+                onToggleTaskDone={toggleTaskDone}
+                onSetAllDone={setAllDone}
+                onSetAllUndone={setAllUndone}
+              />
+            </Route>
+            <Route path='/calendar' exact>
+              <CalendarPage />
+            </Route>
+            <Route path='/notes' exact>
+              <NotesPage />
+            </Route>
           </StyledSection>
         </StyledContent>
         <Footer />
       </StyledContainer>
-    </>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App;
